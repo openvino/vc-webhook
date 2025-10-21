@@ -1,0 +1,18 @@
+{
+  "specversion": "1.0",
+  "id": "a3e20899-42e2-4362-8924-320fd8981794",
+  "source": "source://vcs/verifier",
+  "type": "verifier.oidc-interaction-initiated.v1",
+  "time": "2025-10-17T19:17:44.729283502Z",
+  "datacontenttype": "application/json",
+  "data": {
+    "authorizationRequest": "openid-vc://?request_uri=http://127.0.0.1:8075/request-object/68f296586f389880ff55beed",
+    "filter": { "fields": [""] },
+    "orgID": "f13d1va9lp403pb9lyj89vk55",
+    "presentationDefinitionID": "6eca10b3-7e68-4ce5-bc19-4bd8aa464fc3",
+    "profileID": "v_jwt_university_degree",
+    "profileVersion": "v1.0",
+    "webHook": "https://g56nhqll-3000.brs.devtunnels.ms"
+  },
+  "txnid": "78d632f9-dc7e-4e02-9ad8-891ddda73c96"
+}

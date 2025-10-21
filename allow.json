@@ -1,0 +1,25 @@
+{
+  "specversion": "1.0",
+  "id": "f6c2dcf1-ae45-44e8-90f9-11bbaec1244e",
+  "source": "source://vcs/verifier",
+  "type": "verifier.oidc-interaction-succeeded.v1",
+  "time": "2025-10-17T18:57:56.440452841Z",
+  "datacontenttype": "application/json",
+  "data": {
+    "credentials": [
+      {
+        "id": "urn:uuid:fd5395b0-4eb0-43cd-90d7-77c393c6f958",
+        "issuerID": "did:ion:EiClORxaBVmHfc6lUe5qew3XCL5rVKiCz8xzXmMgrEPDFg:eyJkZWx0YSI6eyJwYXRjaGVzIjpbeyJhY3Rpb24iOiJhZGQtcHVibGljLWtleXMiLCJwdWJsaWNLZXlzIjpbeyJpZCI6IlBpVG5fSWZLVTR3WDZnX0oyUWZRREhMLVNYSW8wTWwwMzlvZGd4MkNOSEEiLCJwdWJsaWNLZXlKd2siOnsiY3J2IjoiRWQyNTUxOSIsImtpZCI6IlBpVG5fSWZLVTR3WDZnX0oyUWZRREhMLVNYSW8wTWwwMzlvZGd4MkNOSEEiLCJrdHkiOiJPS1AiLCJ4IjoiVlhjU3RDdXJqY2dMVlZIQnJadUdlNmJuZW1pMVJkaG0weDhtYVQ3M2UwcyJ9LCJwdXJwb3NlcyI6WyJhdXRoZW50aWNhdGlvbiIsImFzc2VydGlvbk1ldGhvZCJdLCJ0eXBlIjoiSnNvbldlYktleTIwMjAifV19LHsiYWN0aW9uIjoiYWRkLXNlcnZpY2VzIiwic2VydmljZXMiOlt7ImlkIjoiTGlua2VkRG9tYWlucyIsInNlcnZpY2VFbmRwb2ludCI6eyJvcmlnaW5zIjpbImh0dHA6Ly92Yy1yZXN0LWVjaG8udHJ1c3RibG9jLmxvY2FsOjgwNzUvIl19LCJ0eXBlIjoiTGlua2VkRG9tYWlucyJ9XX1dLCJ1cGRhdGVDb21taXRtZW50IjoiRWlDNnp1SWtwYVN2bkx4ZzhYdTNLT1BHX1V3MzBWenJEWVdYM0plaHN0dWRFdyJ9LCJzdWZmaXhEYXRhIjp7ImRlbHRhSGFzaCI6IkVpQkQ1RDNuYk5VajA5NTdZM2JDUnNLV0hxNkVxQVByUHhQYUoxNXZ5OEY5UGciLCJyZWNvdmVyeUNvbW1pdG1lbnQiOiJFaUJoM0N3WXVJdGxHXzhaWEE5OENxV3VGTC1oNkY2ZDgweHNpNFBwME94Tl9BIn0sInR5cGUiOiJjcmVhdGUifQ",
+        "subjectID": "did:jwk:eyJjcnYiOiJQLTM4NCIsImtpZCI6ImdYdl81NnpEUGFyU2xQODlJZEc2Q1YtSWJ6NmVxWnF6eTlCMEdOd3hGZ1UiLCJrdHkiOiJFQyIsIngiOiJ1UHItRXFJUEpSUHJxaGpud1p5VGNqN3dNdHZ3bUEtbHlpMDJ6M2U5a1VONWVUXzF5WTBHdDhrUGQyT1lNNXRuIiwieSI6IjVRbEd3YlFpcjJ1ZzFnQWk4Nk5Va1RlRUFsV0VXWFhPTVI1cUlKM0pJSHFnYnlvNF9fcUw1OVdfZnF4WHJQMGQifQ",
+        "types": ["VerifiableCredential", "VerifiedEmployee"]
+      }
+    ],
+    "interaction_details": { "user": "123456" },
+    "orgID": "f13d1va9lp403pb9lyj89vk55",
+    "presentationDefinitionID": "32f54163-7166-48f1-93d8-ff217bdb0653",
+    "profileID": "v_myprofile_jwt_verified_employee",
+    "profileVersion": "v1.0",
+    "webHook": "https://g56nhqll-3000.brs.devtunnels.ms/"
+  },
+  "txnid": "5ef39f94-b7ee-4b34-a8c7-cd5e4fcb3a35"
+}
