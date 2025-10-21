@@ -4,8 +4,8 @@ Servicio Express que escucha eventos, abre una puerta cuando un proceso termina 
 
 ## Requisitos
 
-- Node.js 20 o superior  
-- npm 10+  
+- Node.js 20 o superior
+- npm 10+
 - RPC accesible para Base Sepolia
 
 ## Instalación
@@ -55,8 +55,6 @@ curl -X POST http://localhost:3000/verify \
   -H "Content-Type: text/plain" \
   -d '{"type":"process_succeeded","payload":{"id":"demo-123"}}'
 
-# Consultar cola
-curl http://localhost:3000/checktopics
 
 # Registrar credencial
 curl -X POST http://localhost:3000/issue \
