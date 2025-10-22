@@ -20,7 +20,37 @@ const registry = new Contract(
 	provider
 );
 
-const metadata = await registry.metadataOf(credentialHash);
-const exists = await registry.exists(credentialHash);
+let credentialTuple = null;
+let exists = false;
+let isActive = false;
 
-console.log({ credentialHash, exists, metadata });
+try {
+	credentialTuple = await registry.getCredential(credentialHash);
+	exists = true;
+	isActive = credentialTuple[4];
+} catch (err) {
+	const reason = err?.reason || err?.message || String(err);
+	if (!reason.includes("Credential not found")) {
+		console.warn("No se pudo leer la credencial:", reason);
+	}
+	exists = await registry.exists(credentialHash);
+	if (exists && typeof registry.isActive === "function") {
+		isActive = await registry.isActive(credentialHash);
+	}
+}
+
+const output = {
+	credentialHash,
+	exists,
+	isActive,
+};
+
+if (credentialTuple) {
+	const [metadata, subjectDid, issuerName, issuerDid] = credentialTuple;
+	output.metadata = metadata;
+	output.subjectDid = subjectDid;
+	output.issuerName = issuerName;
+	output.issuerDid = issuerDid;
+}
+
+console.log(output);

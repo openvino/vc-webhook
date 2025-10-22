@@ -81,4 +81,17 @@ Para confirmar un hash guardado en el contrato:
 node check.js 0x<credentialHash>
 ```
 
-El script lee `metadataOf` y `exists` usando las credenciales del `.env`.
+El script consulta `getCredential`, `exists` e `isActive` usando las credenciales del `.env`.
+
+## Revocar o reactivar una credencial
+
+```bash
+curl -X POST http://localhost:3000/issue/status \
+  -H "Content-Type: application/json" \
+  -d '{
+    "credentialHash": "0x...",
+    "active": false
+  }'
+```
+
+El endpoint `/issue/status` llama a `setCredentialStatus` en el contrato para revocar (`active: false`) o reactivar (`active: true`) una credencial.
