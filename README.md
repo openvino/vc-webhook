@@ -1,20 +1,20 @@
 # VC Webhook
 
-Servicio Express que escucha eventos, abre una puerta cuando un proceso termina con éxito y ancla credenciales verificables en un contrato `CredentialRegistry` en Base Sepolia.
+Express service that listens to events, opens a door when a process finishes successfully, and anchors verifiable credentials on a `CredentialRegistry` contract on Base Sepolia.
 
-## Requisitos
+## Requirements
 
-- Node.js 20 o superior
+- Node.js 20 or later
 - npm 10+
-- RPC accesible para Base Sepolia
+- RPC endpoint accessible for Base Sepolia
 
-## Instalación
+## Installation
 
 ```bash
 npm install
 ```
 
-Crea un archivo `.env` en la raíz:
+Create a `.env` file at the root:
 
 ```
 WEBHOOK_PORT=3000
@@ -25,38 +25,38 @@ CHAIN_ID=84532
 PRIVATE_KEY=0x...
 ```
 
-## Uso
+## Usage
 
 ```bash
 npm run dev
 ```
 
-El servidor queda disponible en `http://localhost:WEBHOOK_PORT`.
+The server will be available at `http://localhost:WEBHOOK_PORT`.
 
-## Endpoints principales
+## Main endpoints
 
 - `POST /verify`  
-  Recibe el cuerpo en texto plano; si `type` contiene `"succeeded"` hace `GET` a `DOOR0_URL` y encola el mensaje.
+  Receives a plain text body; if `type` contains `"succeeded"` it makes a `GET` request to `DOOR0_URL` and enqueues the message.
 
 - `GET /checktopics`  
-  Devuelve y remueve el mensaje más antiguo de la cola (o 404 después de `topicTimeoutMs`).
+  Returns and removes the oldest message in the queue (or 404 after `topicTimeoutMs`).
 
 - `POST /issue`  
-  Espera un JSON con `vc` y `metadata`. Canoniza la VC, calcula el hash SHA‑256 y llama a `storeCredential` en el registro on-chain.
+  Expects a JSON payload with `vc` and `metadata`. It canonicalizes the VC, computes the SHA-256 hash, and calls `storeCredential` on the on-chain registry.
 
 - `GET /issue/health`  
-  Verifica que la configuración on-chain sea válida y expone dirección del emisor, RPC y contrato.
+  Validates that the on-chain configuration is correct and exposes the issuer address, RPC, and contract.
 
-## Ejemplos con curl
+## Curl examples
 
 ```bash
-# Evento exitoso
+# Successful event
 curl -X POST http://localhost:3000/verify \
   -H "Content-Type: text/plain" \
   -d '{"type":"process_succeeded","payload":{"id":"demo-123"}}'
 
 
-# Registrar credencial
+# Register credential
 curl -X POST http://localhost:3000/issue \
   -H "Content-Type: application/json" \
   -d '{
@@ -73,17 +73,17 @@ curl -X POST http://localhost:3000/issue \
 curl http://localhost:3000/issue/health
 ```
 
-## Script de verificación
+## Verification script
 
-Para confirmar un hash guardado en el contrato:
+To confirm a hash stored in the contract:
 
 ```bash
 node check.js 0x<credentialHash>
 ```
 
-El script consulta `getCredential`, `exists` e `isActive` usando las credenciales del `.env`.
+The script queries `getCredential`, `exists`, and `isActive` using the credentials from `.env`.
 
-## Revocar o reactivar una credencial
+## Revoke or reactivate a credential
 
 ```bash
 curl -X POST http://localhost:3000/issue/status \
@@ -94,4 +94,4 @@ curl -X POST http://localhost:3000/issue/status \
   }'
 ```
 
-El endpoint `/issue/status` llama a `setCredentialStatus` en el contrato para revocar (`active: false`) o reactivar (`active: true`) una credencial.
+The `/issue/status` endpoint calls `setCredentialStatus` on the contract to revoke (`active: false`) or reactivate (`active: true`) a credential.
